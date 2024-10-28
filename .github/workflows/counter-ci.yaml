@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        counter: [counter-service, counter-better]
+        counter: [counter-service]
     steps:
       
       - name: Checkout code
