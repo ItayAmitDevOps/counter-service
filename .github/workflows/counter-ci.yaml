@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        counter: [counter-service, counter-better]
+        counter: [counter-service]
     steps:
       
       - name: Checkout code
@@ -58,7 +58,6 @@ jobs:
 
       - name: update values.yaml with new tag 
         run: |
-          sed -i "s/appTag: .*/appTag: ${SHORT_SHA}/" argocd/helm-charts/counter-better/values.yaml
           sed -i "s/appTag: .*/appTag: ${SHORT_SHA}/" argocd/helm-charts/counter-service/values.yaml
 
       - name: Commit and push changes
