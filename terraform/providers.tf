@@ -6,7 +6,7 @@ terraform {
   required_providers {
     aws = {
       source = "hashicorp/aws"
-      version = "5.65.0"
+      version = "~>5.0"
     }
      helm = {
       source = "hashicorp/helm"
@@ -15,13 +15,13 @@ terraform {
   }
 }
 
-#terraform {
-#  backend "s3" {
-#    bucket = "tfstate-s3-counter-task" 
-#    key    = "terraform/state/terraform.tfstate"
-#    region = "eu-central-1"
-#  }
-#}
+terraform {
+  backend "s3" {
+    bucket = "tfstate-s3-counter-task" 
+    key    = "terraform/state/terraform.tfstate"
+    region = "eu-central-1"
+  }
+}
 
 
 # Data for Helm Provider
