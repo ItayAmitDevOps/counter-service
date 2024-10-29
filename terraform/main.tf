@@ -1,9 +1,9 @@
- Create S3 Bucket for tfstate
+ #Create S3 Bucket for tfstate
  resource "aws_s3_bucket" "tfstate-s3" {
   bucket = "tfstate-s3-counter-task" 
 }
 
-Create Policy for s3
+#Create Policy for s3
 resource "aws_s3_bucket_policy" "s3-connection_policy" {
   bucket = aws_s3_bucket.tfstate-s3.id
 
