@@ -10,7 +10,7 @@ deployment:
   
   container:
     appImage: lilflypapa/counter-service
-    appTag: 6639c02
+    appTag: 599e762
     imagePullPolicy: Always  
 
     port:
