@@ -19,7 +19,7 @@ terraform {
   backend "s3" {
     bucket = "tfstate-s3-counter-task" 
     key    = "terraform/state/terraform.tfstate"
-    region = var.region
+    region = "eu-central-1"
   }
 }
 
