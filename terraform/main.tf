@@ -1,33 +1,33 @@
-# Create S3 Bucket for tfstate
-#resource "aws_s3_bucket" "tfstate-s3" {
-#  bucket = "tfstate-s3-counter-task" 
-#}
+ Create S3 Bucket for tfstate
+ resource "aws_s3_bucket" "tfstate-s3" {
+  bucket = "tfstate-s3-counter-task" 
+}
 
-# Create Policy for s3
-#resource "aws_s3_bucket_policy" "s3-connection_policy" {
-#  bucket = aws_s3_bucket.tfstate-s3.id
+Create Policy for s3
+resource "aws_s3_bucket_policy" "s3-connection_policy" {
+  bucket = aws_s3_bucket.tfstate-s3.id
 
-#  policy = jsonencode({
-#    Version = "2012-10-17"
-#    Statement = [
-#      {
-#        Sid       = "IPAllow"
-#        Effect    = "Allow"
-#        Principal = "*"
-#        Action    = "s3:*"
-#        Resource = [
-#          "${aws_s3_bucket.tfstate-s3.arn}",
-#          "${aws_s3_bucket.tfstate-s3.arn}/*"
-#        ]
-#        Condition = {
-#          IpAddress = {
-#            "aws:SourceIp" = "147.235.221.152/32"
-#          }
-#        }
-#      }
-#    ]
-#  })
-#}
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Sid       = "IPAllow"
+        Effect    = "Allow"
+        Principal = "*"
+        Action    = "s3:*"
+        Resource = [
+          "${aws_s3_bucket.tfstate-s3.arn}",
+          "${aws_s3_bucket.tfstate-s3.arn}/*"
+        ]
+        Condition = {
+          IpAddress = {
+            "aws:SourceIp" = "147.235.221.152/32"
+          }
+        }
+      }
+    ]
+  })
+}
 
 # Create VPC
 resource "aws_vpc" "vpc" {
