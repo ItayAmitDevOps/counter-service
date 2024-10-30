@@ -204,7 +204,7 @@ resource "aws_iam_role" "eks" {
 POLICY
 }
 
-# Attack policy to role
+# Attach policy to role
 resource "aws_iam_role_policy_attachment" "eks" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
   role       = aws_iam_role.eks.name
@@ -225,7 +225,11 @@ resource "aws_eks_cluster" "eks" {
       aws_subnet.private_zone2.id
     ]
   }
-
+  
+  upgrade_policy {
+    support_type = "STANDARD"
+  }
+  
   access_config {
     authentication_mode                         = "API"
     bootstrap_cluster_creator_admin_permissions = true
@@ -469,8 +473,8 @@ resource "aws_iam_role" "aws_lbc" {
 
 # Create policy
 resource "aws_iam_policy" "aws_lbc" {
-  policy = file("./iam/AWSLoadBalancerController.json")
-  name   = "AWSLoadBalancerController"
+  policy = file("./iam/LBcontroller.json")
+  name   = "LBcontroller"
 }
 
 # Attach policy to role

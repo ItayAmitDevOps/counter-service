@@ -19,5 +19,5 @@ variable "eks_name" {
 }
 
 variable "eks_version" {
-    default = "1.30"
+    default = "1.31"
 }
